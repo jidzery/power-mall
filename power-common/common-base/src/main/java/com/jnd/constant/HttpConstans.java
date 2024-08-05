@@ -17,4 +17,9 @@ public interface HttpConstans {
      * http协议内容类型值：application/json;charset=utf-8
      */
     String APPLICATION_JSON = "application/json;charset=utf-8";
+
+    /**
+     * UTF-8字符编码
+     */
+    String UTF_8 = "utf-8";
 }

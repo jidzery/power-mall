@@ -23,6 +23,36 @@ public interface AuthConstants {
      * token值存放在redis中的前缀
      */
     String LOGIN_TOKEN_PREFIX = "login_token:";
+
+    /**
+     * 登录URL
+     */
+    String LOGIN_URL = "/doLogin";
+
+    /**
+     * 登出URL
+     */
+    String LOGOUT_URL = "/doLogout";
+
+    /**
+     * 登录类型
+     */
+    String LOGIN_TYPE = "loginType";
+
+    /**
+     * 登录类型值：商城后台管理用户登录
+     */
+    String SYS_USER_LOGIN = "sysUserLogin";
+
+    /**
+     * 登录类型值：商城购物系统用户登录
+     */
+    String MEMBER_LOGIN = "memberLogin";
+
+    /**
+     * token有效时长
+     */
+    Long TOKEN_TIME = 14400L;
 }
 
 
