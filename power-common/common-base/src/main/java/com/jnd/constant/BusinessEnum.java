@@ -12,7 +12,8 @@ public enum BusinessEnum {
     OPERATION_FAIL(-1,"操作失败"),
     SERVER_INNER_ERROR(9999,"服务器内部异常"),
     UN_AUTHORIZATION(401,"未授权"),
-    ACCESS_DENY_ERROR(403,"权限不足，请联系管理员")
+    ACCESS_DENY_ERROR(403,"权限不足，请联系管理员"),
+    ACCESS_DENY_FAIL(403,"权限不足，请联系管理员")
     ;
     BusinessEnum(Integer code, String desc) {
         this.code = code;

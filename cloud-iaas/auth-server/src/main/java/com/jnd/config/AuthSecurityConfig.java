@@ -1,11 +1,10 @@
 package com.jnd.config;
 
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.JSONPObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jnd.constant.AuthConstants;
 import com.jnd.constant.BusinessEnum;
-import com.jnd.constant.HttpConstans;
+import com.jnd.constant.HttpConstants;
 import com.jnd.impl.UserDetailsServiceImpl;
 import com.jnd.model.LoginResult;
 import com.jnd.model.Result;
@@ -20,10 +19,7 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,10 +27,6 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.Duration;
 import java.util.UUID;
@@ -99,8 +91,8 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationSuccessHandler authenticationSuccessHandler(){
         return (request, response, authentication) -> {
             // 设置响应头信息
-            response.setContentType(HttpConstans.CONTENT_TYPE);
-            response.setCharacterEncoding(HttpConstans.UTF_8);
+            response.setContentType(HttpConstants.CONTENT_TYPE);
+            response.setCharacterEncoding(HttpConstants.UTF_8);
 
             // 使用UUID来做TOKEN
             String token = UUID.randomUUID().toString();
@@ -134,8 +126,8 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationFailureHandler authenticationFailureHandler(){
         return (request, response, exception) -> {
             // 设置响应头信息
-            response.setContentType(HttpConstans.CONTENT_TYPE);
-            response.setCharacterEncoding(HttpConstans.UTF_8);
+            response.setContentType(HttpConstants.CONTENT_TYPE);
+            response.setCharacterEncoding(HttpConstants.UTF_8);
 
             //创建一个响应结果对象
             Result<Object> result = new Result<>();
@@ -173,8 +165,8 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     public LogoutSuccessHandler logoutSuccessHandler(){
         return (request, response, authentication) -> {
             // 设置响应头信息
-            response.setContentType(HttpConstans.CONTENT_TYPE);
-            response.setCharacterEncoding(HttpConstans.UTF_8);
+            response.setContentType(HttpConstants.CONTENT_TYPE);
+            response.setCharacterEncoding(HttpConstants.UTF_8);
 
             // 从请求头中获取token
             String authorization = request.getHeader(AuthConstants.AUTHORIZATION);

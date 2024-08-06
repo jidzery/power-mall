@@ -7,7 +7,7 @@ package com.jnd.constant;
  * @Date 2024/8/4 11:11
  * @Created by jnd
  */
-public interface HttpConstans {
+public interface HttpConstants {
     /**
      * http协议内容类型
      */

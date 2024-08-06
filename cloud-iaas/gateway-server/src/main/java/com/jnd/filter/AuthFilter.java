@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jnd.config.WhiteUrlsConfig;
 import com.jnd.constant.AuthConstants;
 import com.jnd.constant.BusinessEnum;
-import com.jnd.constant.HttpConstans;
+import com.jnd.constant.HttpConstants;
 import com.jnd.model.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,7 +83,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         //获取响应对象
         ServerHttpResponse response = exchange.getResponse();
         //设置响应头信息
-        response.getHeaders().set(HttpConstans.CONTENT_TYPE,HttpConstans.APPLICATION_JSON);
+        response.getHeaders().set(HttpConstants.CONTENT_TYPE, HttpConstants.APPLICATION_JSON);
 
         //设置响应信息
         Result<Object> result = Result.fail(BusinessEnum.UN_AUTHORIZATION);
